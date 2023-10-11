@@ -24,8 +24,10 @@
 
     # always loaded
     'data': [
+        'security/discount_code_security.xml',
         'security/ir.model.access.csv',
         'views/res_partner_view.xml',
         'views/sale_order_view.xml',
+        'wizard/update_code_view.xml',
     ],
 }

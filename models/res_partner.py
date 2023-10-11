@@ -5,7 +5,7 @@ import re
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    customer_discount_code = fields.Char(string='Discount Code')
+    customer_discount_code = fields.Char(string='Discount Code', groups='discount_code.advanced_sale_group_user')
     is_code_valid = fields.Char(string='Is Discount Code Valid', compute='_compute_valid_code', store=True)
 
     @api.depends('customer_discount_code')
@@ -20,10 +20,3 @@ class ResPartner(models.Model):
                     rec.is_code_valid = 'invalid'
             else:
                 rec.is_code_valid = False
-
-    def action_set_discount_code(self):
-        self.customer_discount_code = 'VIP_10'
-
-
-
-
